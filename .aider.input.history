@@ -94,3 +94,121 @@
 +```
 +
 +Generate an app logo and update the app metadata title and description.
+
+# 2025-11-28 02:51:15.988350
++Game Concept:
++
++Player controls a small prism that moves left and right.
++
++Colored objects fall from the top of the screen.
++
++The prism must match its color with the falling object to catch it.
++
++Catching the wrong color immediately ends the game.
++
++The game should be fun and accessible for all ages.
++
++Gameplay Mechanics:
++
++Controls: Use arrow keys (left/right) or on-screen buttons for movement.
++
++Scoring: Each correct catch adds 1 point.
++
++High Score: Keep track of the highest score in the session.
++
++Difficulty: Falling objects start slow and speed up gradually over time.
++
++Win/Lose Conditions:
++
++Game ends immediately on catching the wrong color.
++
++Optionally, display a “Game Over” screen with score and restart button.
++
++Visual Feedback:
++
++Smooth, colorful animations for prism and falling objects.
++
++Flash or shake effect on wrong catch.
++
++Display score and high score prominently.
++
++Instructions: Display clear, concise instructions on the screen at the start.
++
++Audio Feedback: Include simple beep or chime sounds for correct catches and errors (optional).
++
++Code Requirements:
++
++Entire game must be fully functional in one HTML file.
++
++Use clean, well-commented code so it’s easy to understand.
++
++Optimize for performance — game should run smoothly in any modern browser.
++
++All shapes/colors must be generated using CSS, canvas, or inline drawing — no images.
++
++Output:
++
++Provide the full HTML code of the working game.
++
++Do NOT include explanations or extra text — only the final HTML file.
++
++The game must be immediately playable when opened in a browser.”**
+
+# 2025-11-28 02:51:15.989364
++Game Concept:
++
++Player controls a small prism that moves left and right.
++
++Colored objects fall from the top of the screen.
++
++The prism must match its color with the falling object to catch it.
++
++Catching the wrong color immediately ends the game.
++
++The game should be fun and accessible for all ages.
++
++Gameplay Mechanics:
++
++Controls: Use arrow keys (left/right) or on-screen buttons for movement.
++
++Scoring: Each correct catch adds 1 point.
++
++High Score: Keep track of the highest score in the session.
++
++Difficulty: Falling objects start slow and speed up gradually over time.
++
++Win/Lose Conditions:
++
++Game ends immediately on catching the wrong color.
++
++Optionally, display a “Game Over” screen with score and restart button.
++
++Visual Feedback:
++
++Smooth, colorful animations for prism and falling objects.
++
++Flash or shake effect on wrong catch.
++
++Display score and high score prominently.
++
++Instructions: Display clear, concise instructions on the screen at the start.
++
++Audio Feedback: Include simple beep or chime sounds for correct catches and errors (optional).
++
++Code Requirements:
++
++Entire game must be fully functional in one HTML file.
++
++Use clean, well-commented code so it’s easy to understand.
++
++Optimize for performance — game should run smoothly in any modern browser.
++
++All shapes/colors must be generated using CSS, canvas, or inline drawing — no images.
++
++Output:
++
++Provide the full HTML code of the working game.
++
++Do NOT include explanations or extra text — only the final HTML file.
++
++The game must be immediately playable when opened in a browser.”**
