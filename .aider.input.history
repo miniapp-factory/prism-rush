@@ -428,3 +428,39 @@
 +
 +Your task: Generate the full, ready-to-play HTML file for Prism Rush, fully commented, bug-free, and optimized for all ages and grading criteria. Include instructions, scoring, UI, and gameplay mechanics exactly as described.
 +
+
+# 2025-11-28 04:02:38.333550
++change the game. 
++
++player will tap the corresponding color of the prism. There is an indicator which prism should they click
++
++The scoring system every correct prism click is 1 point 
++
++add leadboards 
++
++make the game faster as itt progress 
++add main menu UI 
++pause UI 
++
++game oever UI 
++
++
++
+
+# 2025-11-28 04:02:38.334164
++change the game. 
++
++player will tap the corresponding color of the prism. There is an indicator which prism should they click
++
++The scoring system every correct prism click is 1 point 
++
++add leadboards 
++
++make the game faster as itt progress 
++add main menu UI 
++pause UI 
++
++game oever UI 
++
++
++
