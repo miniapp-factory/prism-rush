@@ -1,0 +1,96 @@
+
+# 2025-11-28 02:31:21.726888
++Code the following app
++```
++Platform: HTML, CSS, and JavaScript in a single file (self-contained, no external libraries).
++
++Theme & Mechanics:
++
++Player controls a small prism that moves left/right.
++
++Colored objects fall from above.
++
++Player must match the prism’s color to the falling object to score points.
++
++Catching the wrong color ends the game.
++
++Gameplay:
++
++Simple, intuitive, and fun for all ages.
++
++One clear core mechanic that’s easy to learn.
++
++Increasing difficulty over time.
++
++Display score and high score on screen.
++
++Include a win/lose condition.
++
++Visuals & UX:
++
++Bright, colorful, and smooth animations.
++
++Instructions shown clearly on start or top corner.
++
++Simple shapes/colors for all objects; no external images.
++
++Audio & Feedback:
++
++Include simple sound effects or visual cues for scoring and losing.
++
++Code Requirements:
++
++All code must be clean, well-commented, and fully functional in any browser.
++
++Optimized and self-contained in one HTML file.
++```
++
++Generate an app logo and update the app metadata title and description.
+
+# 2025-11-28 02:31:21.727704
++Code the following app
++```
++Platform: HTML, CSS, and JavaScript in a single file (self-contained, no external libraries).
++
++Theme & Mechanics:
++
++Player controls a small prism that moves left/right.
++
++Colored objects fall from above.
++
++Player must match the prism’s color to the falling object to score points.
++
++Catching the wrong color ends the game.
++
++Gameplay:
++
++Simple, intuitive, and fun for all ages.
++
++One clear core mechanic that’s easy to learn.
++
++Increasing difficulty over time.
++
++Display score and high score on screen.
++
++Include a win/lose condition.
++
++Visuals & UX:
++
++Bright, colorful, and smooth animations.
++
++Instructions shown clearly on start or top corner.
++
++Simple shapes/colors for all objects; no external images.
++
++Audio & Feedback:
++
++Include simple sound effects or visual cues for scoring and losing.
++
++Code Requirements:
++
++All code must be clean, well-commented, and fully functional in any browser.
++
++Optimized and self-contained in one HTML file.
++```
++
++Generate an app logo and update the app metadata title and description.
