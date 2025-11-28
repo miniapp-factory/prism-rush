@@ -212,3 +212,117 @@
 +Do NOT include explanations or extra text — only the final HTML file.
 +
 +The game must be immediately playable when opened in a browser.”**
+
+# 2025-11-28 03:01:56.594137
++player controls a small prism at the bottom of the screen.
++
++The prism can move left and right using arrow keys or on-screen buttons.
++
++The prism can change color (if applicable for advanced levels/power-ups).
++
++Objective:
++
++Colored objects fall from the top of the screen.
++
++The player must catch objects that match the prism’s color.
++
++Catching a matching object increases the player’s score by 1.
++
++Catching a wrong color immediately ends the game.
++
++Game Progression:
++
++Objects start falling slowly and increase speed over time.
++
++The game may introduce more colors or multiple falling objects simultaneously to increase difficulty.
++
++Optional: power-ups may appear occasionally to help the player (e.g., slow down objects, auto-match prism color, bonus points).
++
++Scoring & Feedback:
++
++Display the current score and high score clearly on screen.
++
++Provide visual feedback (flash, shake, or particle effect) when catching an object correctly or incorrectly.
++
++Optional: play a short sound for correct catch and a different one for wrong catch.
++
++Instructions for the Player:
++
++Move the prism left/right to align with the falling colored objects.
++
++Match your prism’s color with the falling object.
++
++Avoid catching the wrong color.
++
++Try to get the highest score before a mistake ends the game.
++
++UI & Clarity:
++
++Show instructions clearly at the top or on a start screen.
++
++Display score, high score, and speed/difficulty level.
++
++Include a restart option after game over.
++
++Output Requirements for AI:
++
++Provide all of the above in a structured, clear format for implementing in a web game.
++
++Use simple, intuitive language that can be translated directly into HTML/CSS/JS mechanics.
+
+# 2025-11-28 03:01:56.595474
++player controls a small prism at the bottom of the screen.
++
++The prism can move left and right using arrow keys or on-screen buttons.
++
++The prism can change color (if applicable for advanced levels/power-ups).
++
++Objective:
++
++Colored objects fall from the top of the screen.
++
++The player must catch objects that match the prism’s color.
++
++Catching a matching object increases the player’s score by 1.
++
++Catching a wrong color immediately ends the game.
++
++Game Progression:
++
++Objects start falling slowly and increase speed over time.
++
++The game may introduce more colors or multiple falling objects simultaneously to increase difficulty.
++
++Optional: power-ups may appear occasionally to help the player (e.g., slow down objects, auto-match prism color, bonus points).
++
++Scoring & Feedback:
++
++Display the current score and high score clearly on screen.
++
++Provide visual feedback (flash, shake, or particle effect) when catching an object correctly or incorrectly.
++
++Optional: play a short sound for correct catch and a different one for wrong catch.
++
++Instructions for the Player:
++
++Move the prism left/right to align with the falling colored objects.
++
++Match your prism’s color with the falling object.
++
++Avoid catching the wrong color.
++
++Try to get the highest score before a mistake ends the game.
++
++UI & Clarity:
++
++Show instructions clearly at the top or on a start screen.
++
++Display score, high score, and speed/difficulty level.
++
++Include a restart option after game over.
++
++Output Requirements for AI:
++
++Provide all of the above in a structured, clear format for implementing in a web game.
++
++Use simple, intuitive language that can be translated directly into HTML/CSS/JS mechanics.
