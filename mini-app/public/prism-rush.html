@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Prism Rush</title>
+<style>
+  body, html {margin:0; padding:0; overflow:hidden; background:#111; color:#fff; font-family:sans-serif;}
+  #game {position:relative; width:100vw; height:100vh;}
+  canvas {display:block; background:#111;}
+  #score {position:absolute; top:10px; left:10px; font-size:1.2rem;}
+  #highscore {position:absolute; top:10px; right:10px; font-size:1.2rem;}
+  #instructions, #gameover {position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); text-align:center; background:rgba(0,0,0,0.7); padding:20px; border-radius:10px;}
+  #instructions button, #gameover button {margin-top:10px; padding:5px 10px; font-size:1rem;}
+  .btn {position:absolute; bottom:20px; width:60px; height:60px; background:rgba(255,255,255,0.2); border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:2rem; cursor:pointer;}
+  #btn-left {left:20px;}
+  #btn-right {right:20px;}
+</style>
+</head>
+<body>
+<div id="game">
+  <canvas id="canvas"></canvas>
+  <div id="score">Score: 0</div>
+  <div id="highscore">High: 0</div>
+  <div id="instructions">
+    <h2>Prism Rush</h2>
+    <p>Move the prism left/right to match the falling color.</p>
+    <p>Catch the right color to score. Wrong color ends the game.</p>
+    <button id="startBtn">Start</button>
+  </div>
+  <div id="gameover" style="display:none;">
+    <h2>Game Over</h2>
+    <p id="finalScore"></p>
+    <button id="restartBtn">Restart</button>
+  </div>
+  <div class="btn" id="btn-left">&#9664;</div>
+  <div class="btn" id="btn-right">&#9654;</div>
+</div>
+<script>
+const canvas = document.getElementById('canvas');
+const ctx = canvas.getContext('2d');
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+const colors = ['#e74c3c','#27ae60','#3498db','#f1c40f'];
+let prism = {x: canvas.width/2, y: canvas.height-80, w:60, h:60, color: colors[0]};
+let falling = null;
+let score = 0;
+let highScore = localStorage.getItem('prismRushHigh')||0;
+document.getElementById('highscore').textContent = 'High: '+highScore;
+let gameRunning = false;
+let speed = 2;
+let spawnInterval = 2000;
+let lastSpawn = 0;
+let lastTime = 0;
+let audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+
+function playSound(freq){
+  const osc = audioCtx.createOscillator();
+  osc.frequency.value = freq;
+  osc.type = 'sine';
+  osc.connect(audioCtx.destination);
+  osc.start();
+  osc.stop(audioCtx.currentTime + 0.1);
+}
+
+function drawPrism(){
+  ctx.fillStyle = prism.color;
+  ctx.beginPath();
+  ctx.moveTo(prism.x, prism.y);
+  ctx.lineTo(prism.x - prism.w/2, prism.y + prism.h);
+  ctx.lineTo(prism.x + prism.w/2, prism.y + prism.h);
+  ctx.closePath();
+  ctx.fill();
+}
+
+function drawFalling(){
+  if(!falling) return;
+  ctx.fillStyle = falling.color;
+  ctx.beginPath();
+  ctx.arc(falling.x, falling.y, falling.r, 0, Math.PI*2);
+  ctx.fill();
+}
+
+function update(delta){
+  if(falling){
+    falling.y += falling.speed;
+    if(falling.y > canvas.height){
+      falling = null;
+    } else if(falling.y + falling.r >= prism.y){
+      if(falling.color === prism.color){
+        score++;
+        document.getElementById('score').textContent = 'Score: '+score;
+        playSound(440);
+        falling = null;
+      } else {
+        endGame();
+      }
+    }
+  }
+  if(!falling && Date.now() - lastSpawn > spawnInterval){
+    spawn();
+    lastSpawn = Date.now();
+  }
+}
+
+function spawn(){
+  const r = 20;
+  const x = Math.random()*(canvas.width-2*r)+r;
+  const color = colors[Math.floor(Math.random()*colors.length)];
+  falling = {x, y: -r, r, color, speed};
+}
+
+function gameLoop(timestamp){
+  if(!lastTime) lastTime = timestamp;
+  const delta = timestamp - lastTime;
+  lastTime = timestamp;
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  drawPrism();
+  drawFalling();
+  if(gameRunning) requestAnimationFrame(gameLoop);
+}
+
+function startGame(){
+  score = 0;
+  document.getElementById('score').textContent = 'Score: 0';
+  prism.color = colors[0];
+  prism.x = canvas.width/2;
+  falling = null;
+  speed = 2;
+  spawnInterval = 2000;
+  lastSpawn = 0;
+  gameRunning = true;
+  document.getElementById('instructions').style.display='none';
+  document.getElementById('gameover').style.display='none';
+  requestAnimationFrame(gameLoop);
+}
+
+function endGame(){
+  gameRunning = false;
+  if(score > highScore){
+    highScore = score;
+    localStorage.setItem('prismRushHigh', highScore);
+    document.getElementById('highscore').textContent = 'High: '+highScore;
+  }
+  document.getElementById('finalScore').textContent = 'Your score: '+score;
+  document.getElementById('gameover').style.display='block';
+  playSound(220);
+}
+
+document.getElementById('startBtn').addEventListener('click', startGame);
+document.getElementById('restartBtn').addEventListener('click', startGame);
+
+let moveDir = 0;
+document.addEventListener('keydown', e=>{
+  if(e.key==='ArrowLeft') moveDir=-1;
+  if(e.key==='ArrowRight') moveDir=1;
+});
+document.addEventListener('keyup', e=>{
+  if((e.key==='ArrowLeft' && moveDir===-1) || (e.key==='ArrowRight' && moveDir===1)) moveDir=0;
+});
+
+document.getElementById('btn-left').addEventListener('click', ()=>{moveDir=-1;});
+document.getElementById('btn-right').addEventListener('click', ()=>{moveDir=1;});
+document.getElementById('btn-left').addEventListener('mouseup', ()=>{moveDir=0;});
+document.getElementById('btn-right').addEventListener('mouseup', ()=>{moveDir=0;});
+
+function updatePrism(){
+  if(moveDir!==0){
+    prism.x += moveDir*10;
+    if(prism.x < prism.w/2) prism.x = prism.w/2;
+    if(prism.x > canvas.width-prism.w/2) prism.x = canvas.width-prism.w/2;
+  }
+  requestAnimationFrame(updatePrism);
+}
+updatePrism();
+
+window.addEventListener('resize', ()=>{
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+  prism.y = canvas.height-80;
+});
+</script>
+</body>
+</html>
