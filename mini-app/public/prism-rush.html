@@ -152,11 +152,12 @@ document.getElementById('restartBtn').addEventListener('click', startGame);
 
 let moveDir = 0;
 document.addEventListener('keydown', e=>{
-  if(e.key==='ArrowLeft') moveDir=-1;
-  if(e.key==='ArrowRight') moveDir=1;
+  if(e.key==='a' || e.key==='A') moveDir=-1;
+  if(e.key==='d' || e.key==='D') moveDir=1;
 });
 document.addEventListener('keyup', e=>{
-  if((e.key==='ArrowLeft' && moveDir===-1) || (e.key==='ArrowRight' && moveDir===1)) moveDir=0;
+  if((e.key==='a' || e.key==='A') && moveDir===-1) moveDir=0;
+  if((e.key==='d' || e.key==='D') && moveDir===1) moveDir=0;
 });
 
 document.getElementById('btn-left').addEventListener('click', ()=>{moveDir=-1;});
